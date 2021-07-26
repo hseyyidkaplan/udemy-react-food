@@ -5,12 +5,14 @@ export default () => {
    const [results, setResults] = useState([]);
    const [errorMessage, setErrorMessage] = useState('');
 
-   const searchApi = async () => {
+   const searchApi = async searchTerm => {
       try {
       const response = await yelp.get('/search', {
-         limit: 50,
-         term,
-         location: 'turkey'
+         params: {
+            limit: 50,
+            term: searchTerm,
+            location: 'san jose'
+         }
       });
       setResults(response.data.businesses);
       } catch (error) {
@@ -18,7 +20,7 @@ export default () => {
       }
    };
 
-   // Call searchApi when component is first rendered.BAD CODE!
+   // Call searchApi when component is first rendered. BAD CODE!
    useEffect(() => {
       searchApi('pasta');
    }, []);

@@ -7,7 +7,7 @@ const navigator = createStackNavigator({
 }, {
   initialRouteName: 'Search',
   defaultNavigationOptions: {
-    title: 'Restoran Arama'
+    title: 'Restorant Arama'
   }
 });
 
